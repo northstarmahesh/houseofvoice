@@ -1300,6 +1300,70 @@
       .carousel-stat-value {
         font-size: 48px;
       }
+
+      /* Carousel Graph Mobile Styles */
+      .carousel-card-graph {
+        min-height: 400px;
+      }
+
+      .carousel-graph {
+        padding-top: 16px;
+      }
+
+      .adoption-curve {
+        height: 120px;
+      }
+
+      .bar-chart {
+        gap: 14px;
+      }
+
+      .bar-container {
+        height: 28px;
+      }
+
+      .bar-value {
+        font-size: 12px;
+      }
+
+      .response-bar {
+        height: 32px;
+        padding: 0 12px;
+      }
+
+      .ai-bar {
+        width: 100px;
+      }
+
+      .human-bar {
+        width: 160px;
+      }
+
+      .response-time {
+        font-size: 14px;
+      }
+
+      .availability-badge {
+        padding: 10px 16px;
+        font-size: 12px;
+      }
+
+      .enterprise-stats {
+        gap: 12px;
+      }
+
+      .stat-circle {
+        width: 65px;
+        height: 65px;
+      }
+
+      .stat-circle .stat-value {
+        font-size: 15px;
+      }
+
+      .enterprise-stat .stat-label {
+        font-size: 10px;
+      }
     }
 
     /* Voice Hub Section */
@@ -1983,17 +2047,32 @@
         padding: 80px 0;
       }
 
+      .use-cases-header {
+        margin-bottom: 50px;
+      }
+
+      .use-cases-header h2 {
+        font-size: clamp(32px, 8vw, 48px);
+      }
+
       .mockup-content {
-        padding: 32px 20px;
+        padding: 24px 16px;
       }
 
       .mockup-flow {
-        gap: 8px;
-        margin-bottom: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 32px;
+      }
+
+      .flow-arrow {
+        display: none;
       }
 
       .flow-step {
-        padding: 16px 20px;
+        padding: 16px 12px;
+        border-radius: 12px;
       }
 
       .step-icon {
@@ -2004,37 +2083,76 @@
         font-size: 11px;
       }
 
-      .flow-arrow {
-        font-size: 16px;
-      }
-
       .mockup-stats {
-        gap: 24px;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       .mockup-stat .stat-num {
-        font-size: 32px;
+        font-size: 28px;
+      }
+
+      .mockup-stat .stat-label {
+        font-size: 10px;
       }
 
       .use-case-tabs {
-        gap: 8px;
+        gap: 6px;
+        padding: 0 10px;
       }
 
       .use-case-tab {
-        padding: 12px 16px;
-        font-size: 12px;
+        padding: 10px 12px;
+        font-size: 11px;
+        border-radius: 8px;
       }
 
       .tab-icon {
-        font-size: 16px;
+        font-size: 14px;
+      }
+
+      .tab-label {
+        display: none;
+      }
+
+      .use-case-tab.active .tab-label {
+        display: inline;
+      }
+
+      .use-case-descriptions {
+        padding: 0 20px;
       }
 
       .use-case-desc h3 {
-        font-size: 22px;
+        font-size: 20px;
       }
 
       .use-case-desc p {
-        font-size: 15px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .mockup-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-step {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 14px 16px;
+      }
+
+      .use-case-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .use-case-tab {
+        flex: 0 0 auto;
       }
     }
 
