@@ -3272,6 +3272,95 @@
       margin-bottom: 20px;
     }
 
+    /* Events Section */
+    .events-section {
+      padding: 120px 0;
+      background: var(--black);
+      text-align: center;
+    }
+
+    .events-header {
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+
+    .events-header h2 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    .events-header h2 em {
+      font-style: normal;
+      color: var(--coral);
+    }
+
+    .events-header p {
+      font-size: 18px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .events-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .events-embed {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .events-embed iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    .events-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .events-cta .btn {
+      padding: 16px 32px;
+      font-size: 16px;
+    }
+
+    .events-cta p {
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .events-cta p a {
+      color: var(--coral);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .events-section {
+        padding: 80px 0;
+      }
+
+      .events-embed iframe {
+        height: 400px;
+      }
+
+      .events-header h2 {
+        font-size: clamp(28px, 7vw, 40px);
+      }
+    }
+
     /* CTA */
     .cta {
       padding: 140px 0;
@@ -4189,7 +4278,7 @@
     <div class="nav-menu">
       <a href="#cases" class="nav-link">Case Studies</a>
       <a href="#team" class="nav-link">Team</a>
-      <a href="[EVENT_LINK]" class="nav-link">Event</a>
+      <a href="#events" class="nav-link">Events</a>
     </div>
     <a href="#contact" class="nav-cta">Book a Call</a>
   </nav>
@@ -4999,6 +5088,35 @@
     </div>
   </section>
 
+  <!-- Events Section -->
+  <section class="events-section" id="events">
+    <div class="container">
+      <div class="events-header reveal">
+        <h2>Join Our <em>Voice AI Series</em></h2>
+        <p>Learn from industry experts and discover how Voice AI is transforming businesses across industries</p>
+      </div>
+
+      <div class="events-content reveal">
+        <div class="events-embed">
+          <iframe
+            src="https://luma.com/embed/calendar/cal-7L2ImbELnz23KYb/events"
+            width="100%"
+            height="500"
+            frameborder="0"
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0"
+          ></iframe>
+        </div>
+
+        <div class="events-cta">
+          <a href="https://luma.com/voiceai-series?k=c" target="_blank" class="btn btn-primary">View Full Calendar</a>
+          <p>Free to attend - register to save your spot</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta" id="contact">
     <div class="cta-content">
@@ -5051,6 +5169,7 @@
           <ul>
             <li><a href="[BLOG_LINK]">Blog</a></li>
             <li><a href="#team">Team</a></li>
+            <li><a href="#events">Events</a></li>
           </ul>
         </div>
 
