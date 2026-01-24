@@ -2098,26 +2098,46 @@
       }
 
       .use-case-tabs {
-        gap: 6px;
-        padding: 0 10px;
+        display: flex;
+        gap: 8px;
+        padding: 0 16px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        margin-bottom: 24px;
       }
 
-      .use-case-tab {
-        padding: 10px 12px;
-        font-size: 11px;
-        border-radius: 8px;
-      }
-
-      .tab-icon {
-        font-size: 14px;
-      }
-
-      .tab-label {
+      .use-case-tabs::-webkit-scrollbar {
         display: none;
       }
 
-      .use-case-tab.active .tab-label {
+      .use-case-tab {
+        flex: 0 0 auto;
+        padding: 12px 16px;
+        font-size: 12px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        white-space: nowrap;
+        min-width: auto;
+      }
+
+      .use-case-tab.active {
+        background: var(--coral);
+        border-color: var(--coral);
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+      }
+
+      .tab-icon {
+        font-size: 16px;
+      }
+
+      .tab-label {
         display: inline;
+        font-weight: 500;
       }
 
       .use-case-descriptions {
@@ -2147,12 +2167,22 @@
       }
 
       .use-case-tabs {
-        flex-wrap: wrap;
-        justify-content: center;
+        gap: 6px;
+        padding: 0 12px;
       }
 
       .use-case-tab {
-        flex: 0 0 auto;
+        padding: 10px 14px;
+        font-size: 11px;
+        border-radius: 20px;
+      }
+
+      .tab-icon {
+        font-size: 14px;
+      }
+
+      .tab-label {
+        font-size: 11px;
       }
     }
 
