@@ -2114,6 +2114,25 @@
         display: none;
       }
 
+      /* Reorder elements on mobile: Tabs first, then images, then descriptions */
+      .use-case-display {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .use-case-tabs {
+        order: 1;
+      }
+
+      .use-case-visual-container {
+        order: 2;
+        min-height: 280px;
+      }
+
+      .use-case-descriptions {
+        order: 3;
+      }
+
       .use-case-tab {
         flex: 0 0 auto;
         padding: 12px 16px;
