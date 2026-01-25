@@ -3710,6 +3710,71 @@
       background: rgba(255,255,255,0.1);
     }
 
+    /* Compact CTA */
+    .cta.cta-compact {
+      padding: 80px 0;
+    }
+
+    .cta-compact h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin-bottom: 12px;
+    }
+
+    .cta-compact .cta-description {
+      font-size: 18px;
+      margin-bottom: 32px;
+      opacity: 0.9;
+    }
+
+    .cta-buttons-inline {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons-inline .cta-button {
+      padding: 16px 32px;
+      font-size: 15px;
+    }
+
+    .cta-button-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      background: transparent;
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 100px;
+      border: 2px solid rgba(255,255,255,0.5);
+      transition: all 0.3s ease;
+    }
+
+    .cta-button-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--white);
+    }
+
+    @media (max-width: 768px) {
+      .cta.cta-compact {
+        padding: 60px 20px;
+      }
+
+      .cta-buttons-inline {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cta-buttons-inline .cta-button,
+      .cta-button-outline {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+    }
+
     /* Assessment Section */
     .assessment {
       padding: 120px 0;
@@ -5375,33 +5440,17 @@
   </section>
 
   <!-- CTA -->
-  <section class="cta" id="contact">
+  <section class="cta cta-compact" id="contact">
     <div class="cta-content">
-      <span class="cta-eyebrow">Free Assessment</span>
-      <h2>Voice Readiness<br><em>Assessment</em></h2>
-      <p class="cta-description">Discover if Voice AI is right for your business in just 2 minutes</p>
-      <div class="cta-benefits">
-        <div class="cta-benefit">
-          <span class="benefit-icon">📊</span>
-          <span class="benefit-text">Personalized ROI estimate</span>
-        </div>
-        <div class="cta-benefit">
-          <span class="benefit-icon">🎯</span>
-          <span class="benefit-text">Use case recommendations</span>
-        </div>
-        <div class="cta-benefit">
-          <span class="benefit-icon">⚡</span>
-          <span class="benefit-text">Implementation roadmap</span>
-        </div>
-      </div>
-      <div class="cta-buttons">
-        <a href="https://aivoice.scoreapp.com/questions" target="_blank" class="cta-button cta-button-large">
-          Start Free Assessment
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+      <h2>Ready to explore <em>Voice AI?</em></h2>
+      <p class="cta-description">Take our 2-minute assessment or book a call directly.</p>
+      <div class="cta-buttons-inline">
+        <a href="https://aivoice.scoreapp.com/questions" target="_blank" class="cta-button">
+          Free Assessment →
         </a>
-        <p class="cta-secondary-text">or <a href="https://cal.com/martin-torell-1qm64h/house-of-voice">book a call directly</a></p>
+        <a href="https://cal.com/martin-torell-1qm64h/house-of-voice" target="_blank" class="cta-button-outline">
+          Book a Call →
+        </a>
       </div>
     </div>
   </section>
