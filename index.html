@@ -1940,10 +1940,25 @@
       align-items: center;
     }
 
+    @keyframes orbit {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes counter-rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 40px rgba(224, 122, 95, 0.3); }
+      50% { box-shadow: 0 0 60px rgba(224, 122, 95, 0.5); }
+    }
+
     .ecosystem {
       position: relative;
-      width: 320px;
-      height: 320px;
+      width: 340px;
+      height: 340px;
     }
 
     .ecosystem-center {
@@ -1951,8 +1966,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       background: linear-gradient(135deg, var(--coral) 0%, #C9553D 100%);
       border-radius: 50%;
       display: flex;
@@ -1961,76 +1976,75 @@
       justify-content: center;
       text-align: center;
       z-index: 2;
-      box-shadow: 0 0 60px rgba(224, 122, 95, 0.4);
+      animation: pulse-glow 3s ease-in-out infinite;
     }
 
     .ecosystem-center-icon {
-      font-size: 28px;
+      font-size: 24px;
       margin-bottom: 4px;
     }
 
     .ecosystem-center-text {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
       color: var(--white);
       letter-spacing: 0.05em;
-      line-height: 1.2;
+      line-height: 1.3;
     }
 
-    .ecosystem-ring {
+    .ecosystem-orbit {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      width: 280px;
-      height: 280px;
-      border: 1px dashed rgba(255, 255, 255, 0.15);
+      width: 300px;
+      height: 300px;
+      border: 1px dashed rgba(255, 255, 255, 0.12);
       border-radius: 50%;
+      animation: orbit 45s linear infinite;
     }
 
     .ecosystem-node {
       position: absolute;
-      width: 70px;
-      height: 70px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      width: 64px;
+      height: 64px;
+      background: rgba(20, 20, 20, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 50%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
     }
 
-    .ecosystem-node:hover {
-      background: rgba(224, 122, 95, 0.15);
-      border-color: var(--coral);
-      transform: scale(1.1);
+    .ecosystem-node-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: counter-rotate 45s linear infinite;
     }
 
     .ecosystem-node-icon {
-      font-size: 20px;
-      margin-bottom: 2px;
+      font-size: 18px;
+      margin-bottom: 3px;
     }
 
     .ecosystem-node-label {
-      font-size: 9px;
+      font-size: 8px;
       color: var(--gray-300);
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
     }
 
-    /* Position nodes around the circle */
-    .ecosystem-node:nth-child(1) { top: -10px; left: 50%; transform: translateX(-50%); }
-    .ecosystem-node:nth-child(2) { top: 15%; right: -5px; }
-    .ecosystem-node:nth-child(3) { bottom: 15%; right: -5px; }
-    .ecosystem-node:nth-child(4) { bottom: -10px; left: 50%; transform: translateX(-50%); }
-    .ecosystem-node:nth-child(5) { bottom: 15%; left: -5px; }
-    .ecosystem-node:nth-child(6) { top: 15%; left: -5px; }
-
-    .ecosystem-node:nth-child(1):hover,
-    .ecosystem-node:nth-child(4):hover { transform: translateX(-50%) scale(1.1); }
+    /* Position 6 nodes evenly around the orbit (60 degrees apart) */
+    .ecosystem-node:nth-child(1) { top: -32px; left: 50%; margin-left: -32px; }
+    .ecosystem-node:nth-child(2) { top: 43px; right: -20px; }
+    .ecosystem-node:nth-child(3) { bottom: 43px; right: -20px; }
+    .ecosystem-node:nth-child(4) { bottom: -32px; left: 50%; margin-left: -32px; }
+    .ecosystem-node:nth-child(5) { bottom: 43px; left: -20px; }
+    .ecosystem-node:nth-child(6) { top: 43px; left: -20px; }
 
     @media (max-width: 1024px) {
       .why-hov-layout {
@@ -2078,39 +2092,46 @@
       }
 
       .ecosystem {
-        width: 280px;
-        height: 280px;
+        width: 300px;
+        height: 300px;
       }
 
       .ecosystem-center {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
       }
 
       .ecosystem-center-icon {
-        font-size: 24px;
+        font-size: 20px;
       }
 
       .ecosystem-center-text {
-        font-size: 10px;
+        font-size: 9px;
       }
 
-      .ecosystem-ring {
-        width: 240px;
-        height: 240px;
+      .ecosystem-orbit {
+        width: 260px;
+        height: 260px;
       }
 
       .ecosystem-node {
-        width: 60px;
-        height: 60px;
+        width: 54px;
+        height: 54px;
       }
 
+      .ecosystem-node:nth-child(1) { top: -27px; left: 50%; margin-left: -27px; }
+      .ecosystem-node:nth-child(2) { top: 36px; right: -16px; }
+      .ecosystem-node:nth-child(3) { bottom: 36px; right: -16px; }
+      .ecosystem-node:nth-child(4) { bottom: -27px; left: 50%; margin-left: -27px; }
+      .ecosystem-node:nth-child(5) { bottom: 36px; left: -16px; }
+      .ecosystem-node:nth-child(6) { top: 36px; left: -16px; }
+
       .ecosystem-node-icon {
-        font-size: 18px;
+        font-size: 16px;
       }
 
       .ecosystem-node-label {
-        font-size: 8px;
+        font-size: 7px;
       }
     }
 
@@ -5326,10 +5347,10 @@
               </div>
             </div>
             <div class="why-point">
-              <span class="point-icon">↔️</span>
+              <span class="point-icon">📤</span>
               <div class="point-text">
-                <strong>Inbound & Outbound</strong>
-                <span>Handle incoming calls. Make proactive outreach.</span>
+                <strong>Proactive Outbound</strong>
+                <span>Reach leads first. Follow up automatically.</span>
               </div>
             </div>
             <div class="why-point">
@@ -5358,34 +5379,47 @@
 
         <div class="why-hov-visual">
           <div class="ecosystem">
-            <div class="ecosystem-ring"></div>
             <div class="ecosystem-center">
               <span class="ecosystem-center-icon">🏠</span>
               <span class="ecosystem-center-text">HOUSE OF<br>VOICE</span>
             </div>
-            <div class="ecosystem-node">
-              <span class="ecosystem-node-icon">📈</span>
-              <span class="ecosystem-node-label">Sales</span>
-            </div>
-            <div class="ecosystem-node">
-              <span class="ecosystem-node-icon">📣</span>
-              <span class="ecosystem-node-label">Marketing</span>
-            </div>
-            <div class="ecosystem-node">
-              <span class="ecosystem-node-icon">🎧</span>
-              <span class="ecosystem-node-label">Support</span>
-            </div>
-            <div class="ecosystem-node">
-              <span class="ecosystem-node-icon">📞</span>
-              <span class="ecosystem-node-label">Phone</span>
-            </div>
-            <div class="ecosystem-node">
-              <span class="ecosystem-node-icon">📥</span>
-              <span class="ecosystem-node-label">Inbound</span>
-            </div>
-            <div class="ecosystem-node">
-              <span class="ecosystem-node-icon">📤</span>
-              <span class="ecosystem-node-label">Outbound</span>
+            <div class="ecosystem-orbit">
+              <div class="ecosystem-node">
+                <div class="ecosystem-node-inner">
+                  <span class="ecosystem-node-icon">📈</span>
+                  <span class="ecosystem-node-label">Sales</span>
+                </div>
+              </div>
+              <div class="ecosystem-node">
+                <div class="ecosystem-node-inner">
+                  <span class="ecosystem-node-icon">🎧</span>
+                  <span class="ecosystem-node-label">Support</span>
+                </div>
+              </div>
+              <div class="ecosystem-node">
+                <div class="ecosystem-node-inner">
+                  <span class="ecosystem-node-icon">📤</span>
+                  <span class="ecosystem-node-label">Outbound</span>
+                </div>
+              </div>
+              <div class="ecosystem-node">
+                <div class="ecosystem-node-inner">
+                  <span class="ecosystem-node-icon">📞</span>
+                  <span class="ecosystem-node-label">Phone</span>
+                </div>
+              </div>
+              <div class="ecosystem-node">
+                <div class="ecosystem-node-inner">
+                  <span class="ecosystem-node-icon">📥</span>
+                  <span class="ecosystem-node-label">Inbound</span>
+                </div>
+              </div>
+              <div class="ecosystem-node">
+                <div class="ecosystem-node-inner">
+                  <span class="ecosystem-node-icon">📣</span>
+                  <span class="ecosystem-node-label">Marketing</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
