@@ -325,16 +325,11 @@
       box-shadow: 0 10px 30px var(--coral-glow);
     }
 
-    /* Event Announcement Bar */
+    /* Event Announcement Bar - Static at top */
     .event-bar {
       background: linear-gradient(90deg, var(--coral) 0%, #C9553D 100%);
       padding: 12px 20px;
       text-align: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1001;
     }
 
     .event-bar a {
@@ -364,53 +359,19 @@
       transform: translateX(4px);
     }
 
-    /* Adjust nav position when event bar is present */
-    nav {
-      top: 44px !important;
-    }
-
-    .hero {
-      padding-top: 180px;
-    }
-
     @media (max-width: 768px) {
       .event-bar {
         padding: 10px 12px;
       }
 
       .event-bar a {
-        font-size: 11px;
-        gap: 6px;
-        flex-wrap: wrap;
-        justify-content: center;
-        line-height: 1.4;
+        font-size: 12px;
+        gap: 8px;
       }
 
       .event-bar .event-date {
         font-size: 10px;
         padding: 3px 8px;
-        flex-shrink: 0;
-      }
-
-      .event-bar a > span:nth-child(2) {
-        flex: 1 1 100%;
-        text-align: center;
-        order: 3;
-        margin-top: 4px;
-      }
-
-      .event-bar .event-arrow {
-        flex-shrink: 0;
-      }
-
-      nav {
-        top: 56px !important;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .event-bar a > span:nth-child(2) {
-        font-size: 10px;
       }
     }
 
@@ -1825,18 +1786,22 @@
     .outcome-card.convert .outcome-result { color: #10B981; }
     .outcome-card.collect .outcome-result { color: #8B5CF6; }
 
-    /* Why House of Voice - Differentiation Section */
+    /* Why House of Voice - Two Column Layout */
     .why-hov-section {
-      padding: 140px 0;
+      padding: 120px 0;
       background: linear-gradient(180deg, var(--black) 0%, var(--dark) 100%);
     }
 
-    .why-hov-header {
-      text-align: center;
-      margin-bottom: 80px;
+    .why-hov-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .why-hov-header .section-eyebrow {
+    .why-hov-content .section-eyebrow {
       display: inline-block;
       font-size: 12px;
       font-weight: 600;
@@ -1846,102 +1811,114 @@
       margin-bottom: 20px;
     }
 
-    .why-hov-header h2 {
-      font-size: clamp(40px, 6vw, 64px);
+    .why-hov-content h2 {
+      font-size: clamp(36px, 5vw, 56px);
       font-weight: 400;
-      margin-bottom: 24px;
+      margin-bottom: 48px;
       color: var(--white);
     }
 
-    .why-hov-header h2 em {
+    .why-hov-content h2 em {
       font-style: normal;
       color: var(--coral);
     }
 
-    .why-hov-header p {
-      font-size: 20px;
-      color: var(--gray-300);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .why-hov-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    .why-hov-points {
+      display: flex;
+      flex-direction: column;
       gap: 24px;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
-    .why-hov-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 40px;
+    .why-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .point-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .point-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .point-text strong {
+      font-size: 18px;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .point-text span {
+      font-size: 15px;
+      color: var(--gray-300);
+      line-height: 1.5;
+    }
+
+    /* Visual Illustration */
+    .why-hov-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .visual-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .visual-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
       transition: all 0.3s ease;
     }
 
-    .why-hov-card:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.15);
-      transform: translateY(-4px);
+    .visual-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(8px);
     }
 
-    .why-hov-card.why-hov-main {
-      grid-column: span 2;
-      background: linear-gradient(135deg, rgba(224, 122, 95, 0.1) 0%, rgba(224, 122, 95, 0.02) 100%);
-      border-color: rgba(224, 122, 95, 0.2);
-    }
-
-    .why-hov-icon {
-      font-size: 40px;
-      margin-bottom: 24px;
-    }
-
-    .why-hov-card h3 {
-      font-family: 'Inter', sans-serif;
+    .visual-icon {
       font-size: 24px;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 16px;
     }
 
-    .why-hov-card p {
+    .visual-label {
       font-size: 16px;
-      color: var(--gray-300);
-      line-height: 1.7;
+      color: var(--white);
+      font-weight: 500;
     }
 
-    .why-hov-list {
-      list-style: none;
-      margin-top: 24px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+    .visual-connector {
+      width: 2px;
+      height: 40px;
+      background: linear-gradient(180deg, rgba(224, 122, 95, 0.5) 0%, var(--coral) 100%);
     }
 
-    .why-hov-list li {
-      font-size: 14px;
-      color: var(--gray-300);
-      padding-left: 24px;
-      position: relative;
+    .visual-result {
+      background: linear-gradient(135deg, var(--coral) 0%, #C9553D 100%);
+      border-radius: 20px;
+      padding: 16px 32px;
     }
 
-    .why-hov-list li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--coral);
+    .visual-result span {
+      color: var(--white);
+      font-size: 16px;
       font-weight: 600;
     }
 
     @media (max-width: 1024px) {
-      .why-hov-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .why-hov-card.why-hov-main {
-        grid-column: span 2;
+      .why-hov-layout {
+        gap: 60px;
       }
     }
 
@@ -1950,25 +1927,33 @@
         padding: 80px 0;
       }
 
-      .why-hov-grid {
+      .why-hov-layout {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 48px;
       }
 
-      .why-hov-card.why-hov-main {
-        grid-column: span 1;
+      .why-hov-content {
+        text-align: center;
       }
 
-      .why-hov-card {
-        padding: 32px 24px;
+      .why-point {
+        text-align: left;
       }
 
-      .why-hov-list {
-        grid-template-columns: 1fr;
+      .why-hov-content h2 {
+        margin-bottom: 32px;
       }
 
-      .why-hov-header p {
+      .point-text strong {
         font-size: 16px;
+      }
+
+      .point-text span {
+        font-size: 14px;
+      }
+
+      .visual-card {
+        padding: 16px 32px;
       }
     }
 
@@ -2550,6 +2535,30 @@
     /* Second row - opposite direction */
     .use-case-track.reverse {
       animation-direction: reverse;
+    }
+
+    @media (max-width: 768px) {
+      .use-case-section {
+        padding: 60px 0;
+      }
+
+      .use-case-header h3 {
+        font-size: 20px;
+      }
+
+      /* Hide second ticker row on mobile */
+      .use-case-ticker:nth-of-type(2) {
+        display: none;
+      }
+
+      .use-case-track {
+        animation-duration: 25s;
+      }
+
+      .use-case-pill {
+        padding: 10px 16px;
+        font-size: 13px;
+      }
     }
 
     /* Case Studies */
@@ -3885,15 +3894,23 @@
 
       /* Hero Section - Mobile Optimized */
       .hero {
-        padding-top: 120px;
+        padding-top: 100px;
         min-height: 100svh;
         display: flex;
         align-items: center;
       }
 
+      .soundwave-canvas {
+        top: -30%;
+        height: 60%;
+        opacity: 0.4;
+      }
+
       .hero-content {
         padding: 0 24px;
         width: 100%;
+        position: relative;
+        z-index: 2;
       }
 
       .hero-logo {
@@ -4450,7 +4467,7 @@
         <div class="carousel-card carousel-card-graph">
           <span class="carousel-card-eyebrow">Market Timing</span>
           <h3>Voice AI just crossed the chasm</h3>
-          <p>We're past the early adopter phase. The technology works. Costs dropped 90%. The early majority is moving — fast.</p>
+          <p>90% cost drop. ROI in 60-90 days.</p>
           <div class="carousel-graph">
             <svg viewBox="0 0 360 180" class="adoption-curve">
               <!-- Grid lines -->
@@ -4877,27 +4894,27 @@
         <div class="use-case-descriptions">
           <div class="use-case-desc active" data-case="0">
             <h3>Customer Engagement</h3>
-            <p>Build meaningful relationships through voice. Proactive check-ins, personalized updates, and genuine conversations that strengthen customer loyalty and drive retention.</p>
+            <p>Proactive check-ins. Personalized updates. Loyalty at scale.</p>
           </div>
           <div class="use-case-desc" data-case="1">
             <h3>Voice Surveys</h3>
-            <p>Get 3x higher response rates than email. AI conducts NPS surveys, gathers product feedback, and runs market research through natural conversations customers actually enjoy.</p>
+            <p>3x response rates. NPS, feedback, research—conversationally.</p>
           </div>
           <div class="use-case-desc" data-case="2">
             <h3>Intelligent Follow-up</h3>
-            <p>Never miss a follow-up again. AI automatically reaches out at the right time, gathers feedback, handles objections, and routes hot leads to your team instantly.</p>
+            <p>Right time. Right message. Hot leads routed instantly.</p>
           </div>
           <div class="use-case-desc" data-case="3">
             <h3>Customer Reactivation</h3>
-            <p>Win back dormant customers at scale. AI identifies inactive accounts, reaches out with personalized offers, and logs responses for your team to follow up.</p>
+            <p>Win back dormant customers with personalized outreach.</p>
           </div>
           <div class="use-case-desc" data-case="4">
             <h3>Inbound Call Handling</h3>
-            <p>AI answers every call instantly, qualifies leads with your criteria, books meetings for your sales team, and updates your CRM — all without human intervention.</p>
+            <p>Qualify leads. Book meetings. Update CRM. 24/7.</p>
           </div>
           <div class="use-case-desc" data-case="5">
             <h3>Outbound Sales</h3>
-            <p>Reach thousands of prospects simultaneously. AI calls leads, delivers your pitch, handles objections, and schedules demos — working 24/7 across time zones.</p>
+            <p>Thousands of calls. Objection handling. Demos booked.</p>
           </div>
         </div>
       </div>
@@ -4981,7 +4998,7 @@
           </div>
           <div class="case-industry">Self-Storage · Jordan</div>
           <div class="case-company">Easy Storage</div>
-          <p class="case-description">Captures after-hours leads and handles inbound inquiries across phone, email, and social. Response time: minutes, not hours.</p>
+          <p class="case-description">Captures after-hours leads in minutes, not hours.</p>
           <span class="case-link">
             Read Case Study
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -5002,7 +5019,7 @@
           </div>
           <div class="case-industry">Hospitality · Berlin</div>
           <div class="case-company">Project June</div>
-          <p class="case-description">Answers corporate inquiries across time zones and languages. Qualifies before handing to the booking team.</p>
+          <p class="case-description">Qualifies corporate inquiries across time zones. 24/7.</p>
           <span class="case-link">
             Read Case Study
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -5023,7 +5040,7 @@
           </div>
           <div class="case-industry">Innovation Hub · Stockholm</div>
           <div class="case-company">Epicenter</div>
-          <p class="case-description">Proactive outreach to members for service feedback and upsells. Consistent engagement at scale.</p>
+          <p class="case-description">Proactive member outreach. Feedback and upsells at scale.</p>
           <span class="case-link">
             Read Case Study
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -5044,7 +5061,7 @@
           </div>
           <div class="case-industry">F&B · Stockholm</div>
           <div class="case-company">Dark Edition</div>
-          <p class="case-description">Warm outbound calls to fill empty kitchen space. Prospecting and qualification on autopilot.</p>
+          <p class="case-description">Fills empty kitchen space. Prospecting on autopilot.</p>
           <span class="case-link">
             Read Case Study
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -5059,46 +5076,62 @@
   <!-- Why House of Voice - Differentiation Section -->
   <section class="why-hov-section">
     <div class="container">
-      <div class="why-hov-header reveal">
-        <span class="section-eyebrow">Why House of Voice</span>
-        <h2>Your search <em>ends here.</em></h2>
-        <p>One platform. Complete solution. No stitching tools together.</p>
-      </div>
+      <div class="why-hov-layout reveal">
+        <div class="why-hov-content">
+          <span class="section-eyebrow">Why House of Voice</span>
+          <h2>Your search <em>ends here.</em></h2>
 
-      <div class="why-hov-grid reveal">
-        <div class="why-hov-card why-hov-main">
-          <div class="why-hov-icon">🏠</div>
-          <h3>Everything in One Place</h3>
-          <ul class="why-hov-list">
-            <li>Phone numbers included</li>
-            <li>CRM & calendar integrations</li>
-            <li>Any use case you need</li>
-            <li>Scale without switching</li>
-          </ul>
+          <div class="why-hov-points">
+            <div class="why-point">
+              <span class="point-icon">🏠</span>
+              <div class="point-text">
+                <strong>One Platform</strong>
+                <span>Phone numbers, CRM integrations, any use case</span>
+              </div>
+            </div>
+            <div class="why-point">
+              <span class="point-icon">👷</span>
+              <div class="point-text">
+                <strong>Built by Operators</strong>
+                <span>We've built businesses. We help operators do the same.</span>
+              </div>
+            </div>
+            <div class="why-point">
+              <span class="point-icon">🔧</span>
+              <div class="point-text">
+                <strong>Done-For-You</strong>
+                <span>We handle setup. You focus on business.</span>
+              </div>
+            </div>
+            <div class="why-point">
+              <span class="point-icon">🇪🇺</span>
+              <div class="point-text">
+                <strong>Built for Europe</strong>
+                <span>EU-hosted. GDPR-ready. 20+ languages.</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="why-hov-card">
-          <div class="why-hov-icon">👷</div>
-          <h3>Built by Operators</h3>
-          <p>We've run contact centers. We built what actually works.</p>
-        </div>
-
-        <div class="why-hov-card">
-          <div class="why-hov-icon">🔧</div>
-          <h3>Done-For-You</h3>
-          <p>We handle setup. You focus on business.</p>
-        </div>
-
-        <div class="why-hov-card">
-          <div class="why-hov-icon">🇪🇺</div>
-          <h3>Built for Europe</h3>
-          <p>EU-hosted. GDPR-ready. 20+ languages.</p>
-        </div>
-
-        <div class="why-hov-card">
-          <div class="why-hov-icon">🔒</div>
-          <h3>Your Data, Your Control</h3>
-          <p>EU residency. Enterprise security.</p>
+        <div class="why-hov-visual">
+          <div class="visual-stack">
+            <div class="visual-card">
+              <div class="visual-icon">📞</div>
+              <div class="visual-label">Voice AI</div>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">🔄</div>
+              <div class="visual-label">CRM Sync</div>
+            </div>
+            <div class="visual-card">
+              <div class="visual-icon">📅</div>
+              <div class="visual-label">Calendar</div>
+            </div>
+            <div class="visual-connector"></div>
+            <div class="visual-result">
+              <span>All in one place</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -5217,14 +5250,6 @@
           </div>
         </a>
       </div>
-      <div class="blog-view-all">
-        <a href="https://northstarmahesh.substack.com/t/voice-ai">
-          View All Articles
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
-      </div>
     </div>
   </section>
 
@@ -5238,19 +5263,19 @@
       <div class="faq-grid">
         <div class="faq-item reveal">
           <h3 class="faq-question">Does Voice AI really work?</h3>
-          <p class="faq-answer">Yes — when deployed correctly. Today's Voice AI handles natural conversations with sub-500ms response times and high accuracy. The key is matching the right use cases: high-volume, structured interactions like appointment scheduling, lead qualification, and customer inquiries. We've seen it work across healthcare, real estate, financial services, and more.</p>
+          <p class="faq-answer">Yes. Sub-500ms response times, natural conversations. Proven across healthcare, real estate, fintech.</p>
         </div>
         <div class="faq-item reveal">
           <h3 class="faq-question">Can I try it first?</h3>
-          <p class="faq-answer">Absolutely. We always start with a pilot program — a low-risk way to test Voice AI with real customers in your environment. You'll see actual results before making any larger commitment. Book a call and we'll scope a pilot that makes sense for your business.</p>
+          <p class="faq-answer">Always. We start with a pilot—real customers, real results, low risk.</p>
         </div>
         <div class="faq-item reveal">
           <h3 class="faq-question">What does it cost?</h3>
-          <p class="faq-answer">We custom-build pricing based on your call volume, complexity, and integration needs. There's no one-size-fits-all — every business is different. The best way to get a clear picture is to <a href="https://cal.com/martin-torell-1qm64h/house-of-voice">book a call</a> where we can understand your situation and provide a tailored proposal.</p>
+          <p class="faq-answer">Custom pricing based on volume and complexity. <a href="https://cal.com/martin-torell-1qm64h/house-of-voice">Book a call</a> for a tailored proposal.</p>
         </div>
         <div class="faq-item reveal">
-          <h3 class="faq-question">What use cases can House of Voice help with?</h3>
-          <p class="faq-answer">We specialize in inbound and outbound voice automation: lead capture and qualification, appointment booking and confirmations, customer support and FAQ handling, payment reminders, re-engagement campaigns, and after-hours coverage. If it involves phone conversations at scale, we can likely help.</p>
+          <h3 class="faq-question">What use cases work best?</h3>
+          <p class="faq-answer">Lead qualification, scheduling, support, payment reminders, re-engagement. If it's phone conversations at scale, we can help.</p>
         </div>
       </div>
       <div class="faq-cta reveal">
