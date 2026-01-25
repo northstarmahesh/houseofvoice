@@ -709,6 +709,80 @@
       color: var(--white);
     }
 
+    /* Video Demo Section */
+    .video-demo-section {
+      padding: 100px 0;
+      background: var(--black);
+    }
+
+    .video-demo-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .video-demo-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .video-demo-header .section-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 16px;
+    }
+
+    .video-demo-header h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 400;
+      color: var(--white);
+    }
+
+    .video-demo-header h2 em {
+      font-style: normal;
+      color: var(--coral);
+    }
+
+    .video-demo-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-demo-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-demo-caption {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--gray-500);
+    }
+
+    @media (max-width: 768px) {
+      .video-demo-section {
+        padding: 60px 0;
+      }
+
+      .video-demo-header h2 {
+        font-size: 24px;
+      }
+    }
+
     /* Stats Bar */
     .stats-bar {
       padding: 100px 0;
@@ -4453,6 +4527,20 @@
         <div class="ticker-logo text">Dark Edition</div>
         <div class="ticker-logo text">Epicenter</div>
       </div>
+    </div>
+  </section>
+
+  <!-- Video Demo Section -->
+  <section class="video-demo-section">
+    <div class="video-demo-container">
+      <div class="video-demo-header reveal">
+        <span class="section-eyebrow">See It In Action</span>
+        <h2>Voice AI <em>in 2 minutes</em></h2>
+      </div>
+      <div class="video-demo-wrapper reveal">
+        <iframe src="https://www.tella.tv/video/vid_cmktn5qjd01d604l1atbt97pb/embed?b=0&title=0&a=1&loop=0&t=0&muted=0&wt=0" allowfullscreen allowtransparency></iframe>
+      </div>
+      <p class="video-demo-caption">Watch how businesses are using Voice AI to capture leads and automate conversations</p>
     </div>
   </section>
 
