@@ -1933,63 +1933,104 @@
       line-height: 1.5;
     }
 
-    /* Visual Illustration */
+    /* Ecosystem Diagram */
     .why-hov-visual {
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .visual-stack {
+    .ecosystem {
+      position: relative;
+      width: 320px;
+      height: 320px;
+    }
+
+    .ecosystem-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, var(--coral) 0%, #C9553D 100%);
+      border-radius: 50%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 16px;
+      justify-content: center;
+      text-align: center;
+      z-index: 2;
+      box-shadow: 0 0 60px rgba(224, 122, 95, 0.4);
     }
 
-    .visual-card {
+    .ecosystem-center-icon {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .ecosystem-center-text {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+    }
+
+    .ecosystem-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 280px;
+      height: 280px;
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+    }
+
+    .ecosystem-node {
+      position: absolute;
+      width: 70px;
+      height: 70px;
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 20px 40px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 12px;
+      justify-content: center;
       transition: all 0.3s ease;
     }
 
-    .visual-card:hover {
-      background: rgba(255, 255, 255, 0.08);
-      transform: translateX(8px);
+    .ecosystem-node:hover {
+      background: rgba(224, 122, 95, 0.15);
+      border-color: var(--coral);
+      transform: scale(1.1);
     }
 
-    .visual-icon {
-      font-size: 24px;
+    .ecosystem-node-icon {
+      font-size: 20px;
+      margin-bottom: 2px;
     }
 
-    .visual-label {
-      font-size: 16px;
-      color: var(--white);
+    .ecosystem-node-label {
+      font-size: 9px;
+      color: var(--gray-300);
       font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
     }
 
-    .visual-connector {
-      width: 2px;
-      height: 40px;
-      background: linear-gradient(180deg, rgba(224, 122, 95, 0.5) 0%, var(--coral) 100%);
-    }
+    /* Position nodes around the circle */
+    .ecosystem-node:nth-child(1) { top: -10px; left: 50%; transform: translateX(-50%); }
+    .ecosystem-node:nth-child(2) { top: 15%; right: -5px; }
+    .ecosystem-node:nth-child(3) { bottom: 15%; right: -5px; }
+    .ecosystem-node:nth-child(4) { bottom: -10px; left: 50%; transform: translateX(-50%); }
+    .ecosystem-node:nth-child(5) { bottom: 15%; left: -5px; }
+    .ecosystem-node:nth-child(6) { top: 15%; left: -5px; }
 
-    .visual-result {
-      background: linear-gradient(135deg, var(--coral) 0%, #C9553D 100%);
-      border-radius: 20px;
-      padding: 16px 32px;
-    }
-
-    .visual-result span {
-      color: var(--white);
-      font-size: 16px;
-      font-weight: 600;
-    }
+    .ecosystem-node:nth-child(1):hover,
+    .ecosystem-node:nth-child(4):hover { transform: translateX(-50%) scale(1.1); }
 
     @media (max-width: 1024px) {
       .why-hov-layout {
@@ -2029,6 +2070,47 @@
 
       .visual-card {
         padding: 16px 32px;
+      }
+
+      .why-hov-visual {
+        display: flex;
+        justify-content: center;
+      }
+
+      .ecosystem {
+        width: 280px;
+        height: 280px;
+      }
+
+      .ecosystem-center {
+        width: 100px;
+        height: 100px;
+      }
+
+      .ecosystem-center-icon {
+        font-size: 24px;
+      }
+
+      .ecosystem-center-text {
+        font-size: 10px;
+      }
+
+      .ecosystem-ring {
+        width: 240px;
+        height: 240px;
+      }
+
+      .ecosystem-node {
+        width: 60px;
+        height: 60px;
+      }
+
+      .ecosystem-node-icon {
+        font-size: 18px;
+      }
+
+      .ecosystem-node-label {
+        font-size: 8px;
       }
     }
 
@@ -5233,7 +5315,7 @@
       <div class="why-hov-layout reveal">
         <div class="why-hov-content">
           <span class="section-eyebrow">Why House of Voice</span>
-          <h2>Your search <em>ends here.</em></h2>
+          <h2>5 reasons we <em>excel</em></h2>
 
           <div class="why-hov-points">
             <div class="why-point">
@@ -5244,10 +5326,17 @@
               </div>
             </div>
             <div class="why-point">
-              <span class="point-icon">👷</span>
+              <span class="point-icon">↔️</span>
               <div class="point-text">
-                <strong>Built by Operators</strong>
-                <span>We've built businesses. We help operators do the same.</span>
+                <strong>Inbound & Outbound</strong>
+                <span>Handle incoming calls. Make proactive outreach.</span>
+              </div>
+            </div>
+            <div class="why-point">
+              <span class="point-icon">🌙</span>
+              <div class="point-text">
+                <strong>Always-On Inbound</strong>
+                <span>24/7 availability. Never miss a lead.</span>
               </div>
             </div>
             <div class="why-point">
@@ -5268,22 +5357,35 @@
         </div>
 
         <div class="why-hov-visual">
-          <div class="visual-stack">
-            <div class="visual-card">
-              <div class="visual-icon">📞</div>
-              <div class="visual-label">Voice AI</div>
+          <div class="ecosystem">
+            <div class="ecosystem-ring"></div>
+            <div class="ecosystem-center">
+              <span class="ecosystem-center-icon">🏠</span>
+              <span class="ecosystem-center-text">HOUSE OF<br>VOICE</span>
             </div>
-            <div class="visual-card">
-              <div class="visual-icon">🔄</div>
-              <div class="visual-label">CRM Sync</div>
+            <div class="ecosystem-node">
+              <span class="ecosystem-node-icon">📈</span>
+              <span class="ecosystem-node-label">Sales</span>
             </div>
-            <div class="visual-card">
-              <div class="visual-icon">📅</div>
-              <div class="visual-label">Calendar</div>
+            <div class="ecosystem-node">
+              <span class="ecosystem-node-icon">📣</span>
+              <span class="ecosystem-node-label">Marketing</span>
             </div>
-            <div class="visual-connector"></div>
-            <div class="visual-result">
-              <span>All in one place</span>
+            <div class="ecosystem-node">
+              <span class="ecosystem-node-icon">🎧</span>
+              <span class="ecosystem-node-label">Support</span>
+            </div>
+            <div class="ecosystem-node">
+              <span class="ecosystem-node-icon">📞</span>
+              <span class="ecosystem-node-label">Phone</span>
+            </div>
+            <div class="ecosystem-node">
+              <span class="ecosystem-node-icon">📥</span>
+              <span class="ecosystem-node-label">Inbound</span>
+            </div>
+            <div class="ecosystem-node">
+              <span class="ecosystem-node-icon">📤</span>
+              <span class="ecosystem-node-label">Outbound</span>
             </div>
           </div>
         </div>
