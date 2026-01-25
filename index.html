@@ -240,7 +240,7 @@
     /* Navigation */
     nav {
       position: fixed;
-      top: 0;
+      top: 44px;
       left: 0;
       right: 0;
       z-index: 1000;
@@ -282,6 +282,11 @@
     }
 
     @media (max-width: 768px) {
+      nav {
+        top: 38px;
+        padding: 16px 24px;
+      }
+
       .nav-menu {
         display: none;
       }
@@ -326,8 +331,13 @@
       box-shadow: 0 10px 30px var(--coral-glow);
     }
 
-    /* Event Announcement Bar - Static at top */
+    /* Event Announcement Bar - Fixed at top */
     .event-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1001;
       background: linear-gradient(90deg, var(--coral) 0%, #C9553D 100%);
       padding: 12px 20px;
       text-align: center;
