@@ -1804,6 +1804,153 @@
     .outcome-card.convert .outcome-result { color: #10B981; }
     .outcome-card.collect .outcome-result { color: #8B5CF6; }
 
+    /* Why House of Voice - Differentiation Section */
+    .why-hov-section {
+      padding: 140px 0;
+      background: linear-gradient(180deg, var(--black) 0%, var(--dark) 100%);
+    }
+
+    .why-hov-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .why-hov-header .section-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 20px;
+    }
+
+    .why-hov-header h2 {
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 400;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+
+    .why-hov-header h2 em {
+      font-style: normal;
+      color: var(--coral);
+    }
+
+    .why-hov-header p {
+      font-size: 20px;
+      color: var(--gray-300);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .why-hov-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .why-hov-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 40px;
+      transition: all 0.3s ease;
+    }
+
+    .why-hov-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .why-hov-card.why-hov-main {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(224, 122, 95, 0.1) 0%, rgba(224, 122, 95, 0.02) 100%);
+      border-color: rgba(224, 122, 95, 0.2);
+    }
+
+    .why-hov-icon {
+      font-size: 40px;
+      margin-bottom: 24px;
+    }
+
+    .why-hov-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .why-hov-card p {
+      font-size: 16px;
+      color: var(--gray-300);
+      line-height: 1.7;
+    }
+
+    .why-hov-list {
+      list-style: none;
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .why-hov-list li {
+      font-size: 14px;
+      color: var(--gray-300);
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .why-hov-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--coral);
+      font-weight: 600;
+    }
+
+    @media (max-width: 1024px) {
+      .why-hov-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .why-hov-card.why-hov-main {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .why-hov-section {
+        padding: 80px 0;
+      }
+
+      .why-hov-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .why-hov-card.why-hov-main {
+        grid-column: span 1;
+      }
+
+      .why-hov-card {
+        padding: 32px 24px;
+      }
+
+      .why-hov-list {
+        grid-template-columns: 1fr;
+      }
+
+      .why-hov-header p {
+        font-size: 16px;
+      }
+    }
+
     /* Use Cases Section - AHA Moment - Tabbed Layout */
     .use-cases-section {
       padding: 140px 0;
@@ -4432,6 +4579,55 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
           </svg>
         </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why House of Voice - Differentiation Section -->
+  <section class="why-hov-section">
+    <div class="container">
+      <div class="why-hov-header reveal">
+        <span class="section-eyebrow">Why House of Voice</span>
+        <h2>Your search <em>ends here.</em></h2>
+        <p>Stop stitching together tools. We built the complete Voice AI platform so you don't have to.</p>
+      </div>
+
+      <div class="why-hov-grid reveal">
+        <div class="why-hov-card why-hov-main">
+          <div class="why-hov-icon">🏠</div>
+          <h3>One Platform. Everything Included.</h3>
+          <p>Phone numbers, integrations, AI models, analytics — all in one place. No more juggling 5 vendors and praying they work together.</p>
+          <ul class="why-hov-list">
+            <li>Buy & manage phone numbers</li>
+            <li>Connect your CRM, calendar & tools</li>
+            <li>Build any use case you need</li>
+            <li>Scale without switching platforms</li>
+          </ul>
+        </div>
+
+        <div class="why-hov-card">
+          <div class="why-hov-icon">👷</div>
+          <h3>Built by Operators</h3>
+          <p>We've run contact centers. We know the pain. That's why we built this — not as a tech demo, but as a tool that actually works in production.</p>
+        </div>
+
+        <div class="why-hov-card">
+          <div class="why-hov-icon">🔧</div>
+          <h3>Done-For-You Setup</h3>
+          <p>No technical headaches. We handle the entire implementation — from integration to go-live. You focus on your business, we handle the tech.</p>
+        </div>
+
+        <div class="why-hov-card">
+          <div class="why-hov-icon">🇪🇺</div>
+          <h3>Built for Europe</h3>
+          <p>EU-hosted infrastructure. GDPR-compliant by design. Fine-tuned for Swedish, German, French and 20+ European languages.</p>
+        </div>
+
+        <div class="why-hov-card">
+          <div class="why-hov-icon">🔒</div>
+          <h3>Data You Control</h3>
+          <p>Your data stays yours. EU data residency, enterprise-grade security, and full compliance with European regulations.</p>
+        </div>
       </div>
     </div>
   </section>
