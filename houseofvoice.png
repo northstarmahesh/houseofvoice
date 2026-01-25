@@ -375,42 +375,21 @@
 
     @media (max-width: 768px) {
       .event-bar {
-        padding: 10px 12px;
+        padding: 10px 16px;
       }
 
       .event-bar a {
-        font-size: 11px;
-        gap: 6px;
-        flex-wrap: wrap;
-        justify-content: center;
-        line-height: 1.4;
+        font-size: 12px;
+        gap: 8px;
       }
 
       .event-bar .event-date {
         font-size: 10px;
         padding: 3px 8px;
-        flex-shrink: 0;
-      }
-
-      .event-bar a > span:nth-child(2) {
-        flex: 1 1 100%;
-        text-align: center;
-        order: 3;
-        margin-top: 4px;
-      }
-
-      .event-bar .event-arrow {
-        flex-shrink: 0;
       }
 
       nav {
-        top: 56px !important;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .event-bar a > span:nth-child(2) {
-        font-size: 10px;
+        top: 40px !important;
       }
     }
 
@@ -4610,43 +4589,44 @@
       <div class="why-hov-header reveal">
         <span class="section-eyebrow">Why House of Voice</span>
         <h2>Your search <em>ends here.</em></h2>
-        <p>One platform. Complete solution. No stitching tools together.</p>
+        <p>Stop stitching together tools. We built the complete Voice AI platform so you don't have to.</p>
       </div>
 
       <div class="why-hov-grid reveal">
         <div class="why-hov-card why-hov-main">
           <div class="why-hov-icon">🏠</div>
-          <h3>Everything in One Place</h3>
+          <h3>One Platform. Everything Included.</h3>
+          <p>Phone numbers, integrations, AI models, analytics — all in one place. No more juggling 5 vendors and praying they work together.</p>
           <ul class="why-hov-list">
-            <li>Phone numbers included</li>
-            <li>CRM & calendar integrations</li>
-            <li>Any use case you need</li>
-            <li>Scale without switching</li>
+            <li>Buy & manage phone numbers</li>
+            <li>Connect your CRM, calendar & tools</li>
+            <li>Build any use case you need</li>
+            <li>Scale without switching platforms</li>
           </ul>
         </div>
 
         <div class="why-hov-card">
           <div class="why-hov-icon">👷</div>
           <h3>Built by Operators</h3>
-          <p>We've run contact centers. We built what actually works.</p>
+          <p>We've run contact centers. We know the pain. That's why we built this — not as a tech demo, but as a tool that actually works in production.</p>
         </div>
 
         <div class="why-hov-card">
           <div class="why-hov-icon">🔧</div>
-          <h3>Done-For-You</h3>
-          <p>We handle setup. You focus on business.</p>
+          <h3>Done-For-You Setup</h3>
+          <p>No technical headaches. We handle the entire implementation — from integration to go-live. You focus on your business, we handle the tech.</p>
         </div>
 
         <div class="why-hov-card">
           <div class="why-hov-icon">🇪🇺</div>
           <h3>Built for Europe</h3>
-          <p>EU-hosted. GDPR-ready. 20+ languages.</p>
+          <p>EU-hosted infrastructure. GDPR-compliant by design. Fine-tuned for Swedish, German, French and 20+ European languages.</p>
         </div>
 
         <div class="why-hov-card">
           <div class="why-hov-icon">🔒</div>
-          <h3>Your Data, Your Control</h3>
-          <p>EU residency. Enterprise security.</p>
+          <h3>Data You Control</h3>
+          <p>Your data stays yours. EU data residency, enterprise-grade security, and full compliance with European regulations.</p>
         </div>
       </div>
     </div>
