@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background -->
+  <rect width="64" height="64" rx="12" fill="#0A0A0A"/>
+
+  <!-- Sound wave left -->
+  <path d="M14 26 C14 32, 14 32, 14 38" stroke="#E07A5F" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.5"/>
+  <path d="M8 22 C8 32, 8 32, 8 42" stroke="#E07A5F" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.3"/>
+
+  <!-- Sound wave right -->
+  <path d="M50 26 C50 32, 50 32, 50 38" stroke="#E07A5F" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.5"/>
+  <path d="M56 22 C56 32, 56 32, 56 42" stroke="#E07A5F" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.3"/>
+
+  <!-- V -->
+  <text x="32" y="44" font-family="'Playfair Display', Georgia, serif" font-size="36" font-weight="400" fill="#FFFFFF" text-anchor="middle">V</text>
+</svg>
