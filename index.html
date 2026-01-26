@@ -388,13 +388,13 @@
 
     /* Hero */
     .hero {
-      min-height: 100vh;
+      min-height: auto;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       text-align: center;
-      padding: 140px 60px 100px;
+      padding: 140px 60px 60px;
       position: relative;
       background: var(--black);
       overflow: hidden;
@@ -433,7 +433,7 @@
     }
 
     .hero-logo {
-      margin-bottom: 32px;
+      margin-bottom: 16px;
       text-align: center;
     }
 
@@ -476,6 +476,15 @@
       vertical-align: bottom;
       margin-left: 0.05em;
       letter-spacing: 0.1em;
+    }
+
+    .hero-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 400;
+      color: var(--gray-400);
+      letter-spacing: 0.05em;
+      margin-bottom: 0;
     }
 
     .hero-tagline {
@@ -526,6 +535,165 @@
       font-style: normal;
       color: var(--white);
       font-weight: 400;
+    }
+
+    /* Hero Split Section - Video + Text */
+    .hero-split {
+      background: var(--black);
+      padding: 80px 60px 100px;
+    }
+
+    .hero-split-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-split-video {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      background: var(--gray-900);
+    }
+
+    .hero-split-video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .hero-split-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-split-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .hero-split-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--gray-400);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .hero-split-text strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .hero-split-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .hero-split-cta-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 18px 40px;
+      background: linear-gradient(135deg, var(--coral) 0%, #D4654A 100%);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 20px var(--coral-glow);
+      width: fit-content;
+    }
+
+    .hero-split-cta-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px var(--coral-glow);
+    }
+
+    .hero-split-cta-primary svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-split-cta-primary:hover svg {
+      transform: translateX(4px);
+    }
+
+    .hero-split-cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 36px;
+      background: transparent;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      border: 1px solid var(--gray-600);
+      border-radius: 100px;
+      transition: all 0.4s ease;
+      width: fit-content;
+    }
+
+    .hero-split-cta-secondary:hover {
+      border-color: var(--coral);
+      color: var(--coral);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-split {
+        padding: 60px 40px 80px;
+      }
+
+      .hero-split-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .hero-split-content {
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-split-ctas {
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-split {
+        padding: 40px 24px 60px;
+      }
+
+      .hero-split-title {
+        font-size: 32px;
+      }
+
+      .hero-split-text {
+        font-size: 15px;
+      }
     }
 
     .hero-cta {
@@ -4148,7 +4316,8 @@
       /* Hero Section - Mobile Optimized */
       .hero {
         padding-top: 100px;
-        min-height: 100svh;
+        padding-bottom: 40px;
+        min-height: auto;
         display: flex;
         align-items: center;
       }
@@ -4167,7 +4336,7 @@
       }
 
       .hero-logo {
-        margin-bottom: 24px;
+        margin-bottom: 16px;
       }
 
       .hero-logo .line1 {
@@ -4179,6 +4348,10 @@
       .hero-logo .line2 {
         font-size: clamp(56px, 18vw, 90px);
         line-height: 0.9;
+      }
+
+      .hero-subtitle {
+        font-size: 14px;
       }
 
       .hero-tagline {
@@ -4218,7 +4391,36 @@
       }
 
       .scroll-indicator {
-        bottom: 20px;
+        display: none;
+      }
+
+      /* Hero Split Mobile */
+      .hero-split {
+        padding: 40px 24px 60px;
+      }
+
+      .hero-split-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-split-content {
+        text-align: center;
+        align-items: center;
+      }
+
+      .hero-split-text {
+        font-size: 15px;
+      }
+
+      .hero-split-ctas {
+        align-items: center;
+      }
+
+      .hero-split-cta-primary,
+      .hero-split-cta-secondary {
+        width: 100%;
+        justify-content: center;
       }
 
       /* Logo Ticker */
@@ -4665,24 +4867,32 @@
         <div class="line1">HOUSE <span>of</span></div>
         <div class="line2">VOICE</div>
       </div>
-      <p class="hero-headline">
-        Reliable, EU-hosted, multilingual <em>Voice AI</em>. Capture leads. Convert conversations. Collect what matters.
-      </p>
-      <div class="hero-ctas">
-        <a href="https://cal.com/martin-torell-1qm64h/house-of-voice" target="_blank" class="hero-cta">
-          Book a Call
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
-        <a href="https://aivoice.scoreapp.com/questions" target="_blank" class="hero-cta-secondary">
-          Free Voice Assessment
-        </a>
-      </div>
+      <p class="hero-subtitle">AI Voice Agents For Your Business</p>
     </div>
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
+  </section>
+
+  <!-- Hero Split - Video + Text -->
+  <section class="hero-split">
+    <div class="hero-split-container">
+      <div class="hero-split-video">
+        <iframe src="https://www.tella.tv/video/vid_cmktn5qjd01d604l1atbt97pb/embed?b=0&title=0&a=1&loop=0&t=0&muted=0&wt=0" allowfullscreen allowtransparency></iframe>
+      </div>
+      <div class="hero-split-content">
+        <p class="hero-split-text">
+          House of Voice helps fast-moving European businesses automate real phone conversations at scale. Our voice agents help capture more leads, scale outbound outreach, qualify prospects, book more meetings, reactivate your member base and much more. All in line with <strong>GDPR/EU compliance</strong> and adapted to your language and business voice.
+        </p>
+        <div class="hero-split-ctas">
+          <a href="https://cal.com/martin-torell-1qm64h/house-of-voice" target="_blank" class="hero-split-cta-primary">
+            Book a Call
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <a href="https://aivoice.scoreapp.com/questions" target="_blank" class="hero-split-cta-secondary">
+            Free Voice Assessment
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -4705,20 +4915,6 @@
         <div class="ticker-logo text">Dark Edition</div>
         <div class="ticker-logo text">Epicenter</div>
       </div>
-    </div>
-  </section>
-
-  <!-- Video Demo Section -->
-  <section class="video-demo-section">
-    <div class="video-demo-container">
-      <div class="video-demo-header reveal">
-        <span class="section-eyebrow">See It In Action</span>
-        <h2>Voice AI <em>in 3 minutes</em></h2>
-      </div>
-      <div class="video-demo-wrapper reveal">
-        <iframe src="https://www.tella.tv/video/vid_cmktn5qjd01d604l1atbt97pb/embed?b=0&title=0&a=1&loop=0&t=0&muted=0&wt=0" allowfullscreen allowtransparency></iframe>
-      </div>
-      <p class="video-demo-caption">Watch how businesses are using Voice AI to capture leads and automate conversations</p>
     </div>
   </section>
 
@@ -5791,7 +5987,7 @@
       });
 
       // ===== MAGNETIC BUTTON EFFECT =====
-      const magneticBtns = document.querySelectorAll('.hero-cta, .cta-button, .play-button');
+      const magneticBtns = document.querySelectorAll('.hero-cta, .hero-split-cta-primary, .cta-button, .play-button');
 
       magneticBtns.forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
