@@ -591,12 +591,38 @@
       font-weight: 300;
       color: var(--gray-400);
       line-height: 1.8;
-      margin-bottom: 40px;
+      margin-bottom: 28px;
     }
 
     .hero-split-text strong {
       color: var(--white);
       font-weight: 500;
+    }
+
+    .hero-split-checks {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-split-checks li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .hero-split-checks li svg {
+      width: 20px;
+      height: 20px;
+      color: var(--coral);
+      flex-shrink: 0;
     }
 
     .hero-split-ctas {
@@ -4414,6 +4440,15 @@
         font-size: 15px;
       }
 
+      .hero-split-checks {
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .hero-split-checks li {
+        font-size: 14px;
+      }
+
       .hero-split-ctas {
         align-items: center;
       }
@@ -4868,7 +4903,6 @@
         <div class="line1">HOUSE <span>of</span></div>
         <div class="line2">VOICE</div>
       </div>
-      <p class="hero-subtitle">AI Voice Agents For Your Business</p>
     </div>
   </section>
 
@@ -4880,8 +4914,22 @@
       </div>
       <div class="hero-split-content">
         <p class="hero-split-text">
-          House of Voice helps fast-moving European businesses automate real phone conversations at scale. Our voice agents help capture more leads, scale outbound outreach, qualify prospects, book more meetings, reactivate your member base and much more. All in line with <strong>GDPR/EU compliance</strong> and adapted to your language and business voice.
+          Automate real phone conversations at scale, capture more leads, scale outbound outreach, qualify prospects, book more meetings, reactivate your member base, and much more with our cutting-edge AI voice agents.
         </p>
+        <ul class="hero-split-checks">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            GDPR/EU compliant
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            20+ languages supported
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            Your own business voice included
+          </li>
+        </ul>
         <div class="hero-split-ctas">
           <a href="https://cal.com/martin-torell-1qm64h/house-of-voice" target="_blank" class="hero-split-cta-primary">
             Book a Call
