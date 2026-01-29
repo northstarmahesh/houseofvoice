@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easy Storage Jordan | AI Voice Assistant Demo</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon-hov.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --coral: #E07A5F;
+      --coral-light: #F4A699;
+      --coral-glow: rgba(224, 122, 95, 0.4);
+      --blue: #2563EB;
+      --blue-light: #60A5FA;
+      --black: #0a0a0a;
+      --dark: #1a1a2e;
+      --gray-900: #1A1A1A;
+      --gray-700: #2A2A2A;
+      --gray-600: #404040;
+      --gray-500: #666666;
+      --gray-400: #888888;
+      --gray-300: #AAAAAA;
+      --white: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 400;
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 8px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 6px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--gray-400);
+      transition: all 0.3s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--coral);
+      color: white;
+    }
+
+    .lang-btn:hover:not(.active) {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Header */
+    .header {
+      padding: 30px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .header-logo span {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .header-divider {
+      color: var(--gray-600);
+      font-size: 24px;
+    }
+
+    .header a {
+      color: var(--gray-400);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .header a:hover {
+      color: var(--coral);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 60px 40px 40px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(224, 122, 95, 0.1);
+      border: 1px solid rgba(224, 122, 95, 0.3);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 13px;
+      color: var(--coral-light);
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--coral);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 56px);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, var(--coral) 0%, var(--coral-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--gray-400);
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    /* CTA Button */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--coral), var(--coral-light));
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(224, 122, 95, 0.3);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 50px rgba(224, 122, 95, 0.4);
+    }
+
+    .cta-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Info Cards */
+    .info-section {
+      padding: 60px 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      border-color: var(--coral);
+      background: rgba(224, 122, 95, 0.05);
+    }
+
+    .info-card-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .info-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--white);
+    }
+
+    .info-card p {
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+
+    /* What to Ask Section */
+    .ask-section {
+      padding: 40px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .ask-section h2 {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .ask-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .ask-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-size: 14px;
+      color: var(--gray-300);
+      transition: all 0.3s ease;
+    }
+
+    .ask-tag:hover {
+      border-color: var(--coral);
+      color: var(--coral-light);
+    }
+
+    /* Footer */
+    .footer {
+      padding: 40px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 40px;
+    }
+
+    .footer p {
+      color: var(--gray-500);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .footer a {
+      color: var(--coral);
+      text-decoration: none;
+    }
+
+    .powered-by {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--gray-600);
+      font-size: 12px;
+    }
+
+    /* RTL Support for Arabic */
+    [dir="rtl"] {
+      text-align: right;
+    }
+
+    [dir="rtl"] .hero,
+    [dir="rtl"] .ask-section h2 {
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero {
+        padding: 40px 20px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .info-section, .ask-section {
+        padding: 40px 20px;
+      }
+
+      .lang-switcher {
+        top: 10px;
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language Switcher -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ar">عربي</button>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <a href="https://easystorage.jo" target="_blank" class="header-logo">
+      <span>Easy Storage</span>
+    </a>
+    <span class="header-divider">×</span>
+    <a href="https://houseofvoice.ai" target="_blank">HOUSE of VOICE</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge" data-i18n="badge">Live AI Demo</div>
+    <h1 data-i18n="headline">Talk to <span class="text-gradient">Easy Storage's</span> AI Assistant</h1>
+    <p data-i18n="subheadline">Ask about storage units, pricing, locations, or schedule a facility tour. Our AI speaks English and Arabic.</p>
+    <button class="cta-btn" onclick="document.querySelector('[data-assistant-id]').click()">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/>
+        <line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+      <span data-i18n="cta">Start Conversation</span>
+    </button>
+  </section>
+
+  <!-- Info Cards -->
+  <section class="info-section">
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-icon">📍</div>
+        <h3 data-i18n="info1-title">2 Locations</h3>
+        <p data-i18n="info1-desc">8th Circle & Amman Customs</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">📦</div>
+        <h3 data-i18n="info2-title">50+ Unit Sizes</h3>
+        <p data-i18n="info2-desc">From 2 to 750 sqm</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🔐</div>
+        <h3 data-i18n="info3-title">24/7 Access</h3>
+        <p data-i18n="info3-desc">Your personal security code</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">💰</div>
+        <h3 data-i18n="info4-title">From 93 JD/mo</h3>
+        <p data-i18n="info4-desc">First month for 1 JD offer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to Ask -->
+  <section class="ask-section">
+    <h2 data-i18n="ask-title">What You Can Ask</h2>
+    <div class="ask-list">
+      <span class="ask-tag" data-i18n="tag1">What are your prices?</span>
+      <span class="ask-tag" data-i18n="tag2">Where are you located?</span>
+      <span class="ask-tag" data-i18n="tag3">What sizes do you have?</span>
+      <span class="ask-tag" data-i18n="tag4">Book a viewing</span>
+      <span class="ask-tag" data-i18n="tag5">Business hours</span>
+      <span class="ask-tag" data-i18n="tag6">Do you sell boxes?</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p data-i18n="footer-text">This is a demo of the AI Voice Assistant for <a href="https://easystorage.jo" target="_blank">Easy Storage Jordan</a></p>
+    <div class="powered-by">
+      Powered by <a href="https://houseofvoice.ai" target="_blank">House of Voice</a>
+    </div>
+  </footer>
+
+  <!-- Easy Storage Voice Agent Widget -->
+  <script src="https://login.houseofvoice.ai/embed.js" data-assistant-id="7c32a1d2-2167-4ea7-8951-b398332d97b4"></script>
+
+  <!-- Language Switching -->
+  <script>
+    const translations = {
+      en: {
+        badge: "Live AI Demo",
+        headline: "Talk to <span class='text-gradient'>Easy Storage's</span> AI Assistant",
+        subheadline: "Ask about storage units, pricing, locations, or schedule a facility tour. Our AI speaks English and Arabic.",
+        cta: "Start Conversation",
+        "info1-title": "2 Locations",
+        "info1-desc": "8th Circle & Amman Customs",
+        "info2-title": "50+ Unit Sizes",
+        "info2-desc": "From 2 to 750 sqm",
+        "info3-title": "24/7 Access",
+        "info3-desc": "Your personal security code",
+        "info4-title": "From 93 JD/mo",
+        "info4-desc": "First month for 1 JD offer",
+        "ask-title": "What You Can Ask",
+        "tag1": "What are your prices?",
+        "tag2": "Where are you located?",
+        "tag3": "What sizes do you have?",
+        "tag4": "Book a viewing",
+        "tag5": "Business hours",
+        "tag6": "Do you sell boxes?",
+        "footer-text": "This is a demo of the AI Voice Assistant for <a href='https://easystorage.jo' target='_blank'>Easy Storage Jordan</a>"
+      },
+      ar: {
+        badge: "عرض تجريبي مباشر",
+        headline: "تحدث مع مساعد <span class='text-gradient'>إيزي ستورج</span> الذكي",
+        subheadline: "اسأل عن وحدات التخزين، الأسعار، المواقع، أو احجز جولة في المنشأة. مساعدنا الذكي يتحدث العربية والإنجليزية.",
+        cta: "ابدأ المحادثة",
+        "info1-title": "موقعان",
+        "info1-desc": "الدوار الثامن وجمارك عمان",
+        "info2-title": "+50 حجم وحدة",
+        "info2-desc": "من 2 إلى 750 متر مربع",
+        "info3-title": "دخول 24/7",
+        "info3-desc": "رمز الأمان الشخصي الخاص بك",
+        "info4-title": "من 93 دينار/شهر",
+        "info4-desc": "الشهر الأول بدينار واحد فقط",
+        "ask-title": "ماذا يمكنك أن تسأل",
+        "tag1": "ما هي أسعاركم؟",
+        "tag2": "أين موقعكم؟",
+        "tag3": "ما هي الأحجام المتوفرة؟",
+        "tag4": "احجز معاينة",
+        "tag5": "ساعات العمل",
+        "tag6": "هل تبيعون صناديق؟",
+        "footer-text": "هذا عرض تجريبي لمساعد الصوت الذكي لـ <a href='https://easystorage.jo' target='_blank'>إيزي ستورج الأردن</a>"
+      }
+    };
+
+    const langBtns = document.querySelectorAll('.lang-btn');
+
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+
+        // Update active state
+        langBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Set RTL for Arabic
+        document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+        // Update translations
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.dataset.i18n;
+          if (translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
